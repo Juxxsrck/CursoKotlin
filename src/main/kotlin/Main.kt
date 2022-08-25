@@ -18,20 +18,25 @@ val respuestas = mapOf(
     "No lo creo" to RESPUESTA_NEGATIVA,
 )
 fun main(args: Array<String>) {
-    println("""
+    while (true) {
+        println(
+            """
         "Hola soy tu Bola 8 magica creada con Kotlin. ¿Cuál de estas opciones deseas realizar?
         1. Realizar una pregunta
         2. Mostrar respuestas
         3. salir
-    """.trimIndent())
+    """.trimIndent()
+        )
 
-    val valorIngresado = readLine()
+        val valorIngresado = readLine()
 
-    when (valorIngresado){
-        "1" -> realizarPregunta()
-        "2" -> mostrarRespuestas()
-        "3" -> salir()
-        else -> mostrarError()
+        when (valorIngresado) {
+            "1" -> realizarPregunta()
+            "2" -> mostrarRespuestas()
+            "3" -> { salir()
+                break}
+            else -> mostrarError()
+        }
     }
 }
 
